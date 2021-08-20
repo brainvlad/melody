@@ -249,3 +249,12 @@ path.current-floor {
     background-color: #fff;
 }
 
+path.current-flat {
+    opacity: 1;
+}
+
+.current-flat-link {
+    color: #3596F5;
+    text-decoration: underline;
+}
+

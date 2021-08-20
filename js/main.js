@@ -1,5 +1,8 @@
 $(document).ready(function () {
 
+    const flatPath = $(".flats path")
+    const flatLink = $(".flat-link")
+
     const viewFlatsButton = $(".view-flats")
 
     const modal = $(".modal")
@@ -9,6 +12,20 @@ $(document).ready(function () {
     const counterDown = $(".counter-down")
     const floorPath = $(".home-image path")
     let currentfloor = 02
+
+    flatPath.on('mouseover', function () {
+        flatLink.removeClass("current-flat-link")
+        flatPath.removeClass("current-flat")
+        currentFlat = $(this).attr("data-flat")
+        $(`a[data-flat="${currentFlat}"]`).toggleClass("current-flat-link")
+    })
+    
+    flatLink.on('mouseover', function () {
+        flatLink.removeClass("current-flat-link")
+        flatPath.removeClass("current-flat")
+        currentFlat = $(this).attr("data-flat")
+        $(`.flats path[data-flat="${currentFlat}"]`).toggleClass("current-flat")
+    })
 
     viewFlatsButton.on('click', toggleModal)
 
