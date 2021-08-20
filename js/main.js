@@ -1,9 +1,19 @@
 $(document).ready(function () {
 
+    const viewFlatsButton = $(".view-flats")
+
+    const modal = $(".modal")
+    const modalCloseButton = $(".modal-close-button")
+
     const counterUp = $(".counter-up")
     const counterDown = $(".counter-down")
     const floorPath = $(".home-image path")
     let currentfloor = 02
+
+    viewFlatsButton.on('click', toggleModal)
+
+    floorPath.on('click', toggleModal)
+    modalCloseButton.on('click', toggleModal)
 
     floorPath.on('mouseover', function () {
         floorPath.removeClass("current-floor")
@@ -36,4 +46,8 @@ $(document).ready(function () {
             $(`[data-floor=${usCurrentFloor}]`).toggleClass("current-floor")
         }
     })
+
+    function toggleModal() {
+        modal.toggleClass("is-open")
+    }
 })
